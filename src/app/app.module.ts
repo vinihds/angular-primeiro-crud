@@ -9,6 +9,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,12 +18,8 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
     ProductGetComponent,
     ProductEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SlimLoadingBarModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, SlimLoadingBarModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
