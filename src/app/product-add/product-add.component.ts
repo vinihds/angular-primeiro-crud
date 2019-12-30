@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-add',
@@ -10,7 +11,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ProductAddComponent implements OnInit {
   angForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private productService: ProductsService
+  ) {
     this.createForm();
   }
 
@@ -20,6 +24,14 @@ export class ProductAddComponent implements OnInit {
       ProductDescription: ['', Validators.required],
       ProductPrice: ['', Validators.required]
     });
+  }
+
+  addProduct(ProductName, ProductDescription, ProductPrice) {
+    this.productService.addProduct(
+      ProductName,
+      ProductDescription,
+      ProductPrice
+    );
   }
 
   ngOnInit() {}

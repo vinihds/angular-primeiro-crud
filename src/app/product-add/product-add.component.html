@@ -70,6 +70,13 @@
 
       <div class="form-group">
         <button
+          (click)="
+            addProduct(
+              ProductName.value,
+              ProductDescription.value,
+              ProductPrice.value
+            )
+          "
           type="submit"
           class="btn btn-primary"
           [disabled]="angForm.pristine || angForm.invalid"

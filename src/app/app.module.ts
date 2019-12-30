@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductGetComponent } from './product-get/product-get.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductsService } from './products.service';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,8 +21,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductGetComponent,
     ProductEditComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, SlimLoadingBarModule, ReactiveFormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SlimLoadingBarModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
