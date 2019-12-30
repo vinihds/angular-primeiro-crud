@@ -5,6 +5,7 @@ const express = require('express'),
   mongoose = require('mongoose'),
   config = require('./db');
 
+const productRoute = require('./routers/product.route');
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
   () => {
@@ -18,8 +19,9 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use('/products', productRoute);
 let port = process.env.PORT || 4000;
 
 const server = app.listen(() => {
-  console.log('Listening on port' + port);
+  console.log('Listening on port ' + port);
 });
