@@ -4,7 +4,7 @@ const productRoutes = express.Router();
 
 let Product = require('../models/Product');
 
-productRoutes.route('add').post((req, res) => {
+productRoutes.route('/add').post((req, res) => {
   let product = new Product(req.body);
 
   product
