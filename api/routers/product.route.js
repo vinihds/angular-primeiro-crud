@@ -21,6 +21,11 @@ productRoutes.route('/').get((req, res) => {
   );
 });
 
+productRoutes.route('/edit/:id').get((req, res) => {
+  let id = req.params.id;
+  Product.findById(id, (err, product) => res.json(product));
+});
+
 productRoutes.route('/update/:id').post((req, res) => {
   Product.findById(req.params.id, (err, product) => {
     if (!product) {
